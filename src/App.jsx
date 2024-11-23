@@ -30,7 +30,7 @@ function App() {
     <>
       <h1>  Tweet Frontend</h1>
       
-      <LikeBtn/>
+      
       
     </>
   )

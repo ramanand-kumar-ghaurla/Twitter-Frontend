@@ -1,8 +1,7 @@
 import React ,{useEffect, useState}from 'react'
 
-
 import axios from 'axios'
-  
+ import {getlikeStatus} from '../../hooks/useLike' 
 
 
 
@@ -15,15 +14,15 @@ function LikeBtn({
   ...props
 }) {
    const [likeStatus, setLikeStatus] = useState()
-  
-   const toggleLike =  async()=>{
+
+   const toggleLike =  async(tweetId,modelType)=>{
     const response= await axios.post('http://localhost:9000/api/v1/likes/toggle-like',{ },{
        headers:{
          Authorization:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmQ5OTg0YWI5OTNjZDFlZGU3NTZkYWIiLCJlbWFpbCI6InN1bml0YWFyb3JhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoic3VuaXRhX2Fyb3JhIiwiZnVsbE5hbWUiOiJTdW5pdGEgQXJvcmEiLCJpYXQiOjE3MzIzNDQ2OTgsImV4cCI6MTczMjQzMTA5OH0.uOoAiZIJQrM6sAYuRXYEqrin4HcUw7SbkDL5XQmecxI'
        },
        params:{
-         modelType:'Tweet',
-         modelId:'66c38c5db49593c537377284'
+         modelType:modelType,
+         modelId:tweetId
        }
      }
      ).catch((error)=>{
@@ -37,10 +36,25 @@ function LikeBtn({
      const {isLiked} = response.data.data
      
      setLikeStatus(isLiked)
+     console.log('calling')
+     
    }
+
+// fetch initial status of like
+
+      useEffect(()=>{
+    const fetchLikeStatus = async () => {
+       const status = await getlikeStatus(tweetId,modelType);
+        
+       setLikeStatus(status); }; 
+        
+        fetchLikeStatus();
+        
+   } ,[tweetId])
+  
     
-   console.log('likestatus', likeStatus)
-  //  setLikeStatus(isLiked)
+   
+  
 
   return (
     <div>
