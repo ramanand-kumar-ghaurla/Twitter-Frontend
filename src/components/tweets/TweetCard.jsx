@@ -1,32 +1,46 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import LikeBtn from './LikeBtn'
+import ViewBtn from './ViewBtn'
+import CommentBtn from './Comment'
 
 
 function TweetCard({
-    style
+    
 }) {
-    const tweets = useSelector((state)=> state.tweet)
-    const tweet = tweets.tweets[0]
+    // const tweets = useSelector((state)=> state.tweet)
+    // const tweet = tweets.tweets[0]
 
 
-    if (tweets.tweets=== null) { 
-        return <h1 className='text-2xl'>No blogs available</h1>; }
+    // if (tweets.tweets=== null) { 
+    //     return <h1 className='text-2xl'>No blogs available</h1>; }
 
   return (
    <>
-    <div className="font-sans rounded-md border px-6 py-4 max-w-md">
-    <div className="flex items-center"><img src="" className="h-12 w-12 rounded-full"/>
-        <div className="flex flex-col ml-4"><a className="font-bold text-black" href="#">Emily Jane
-                Morgan</a><span class="text-grey">@MorganEmilyJane</span></div><svg viewBox="328 355 335 276"
-            className="ml-auto" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M 630, 425 A 195, 195 0 0 1 331, 600 A 142, 142 0 0 0 428, 570 A 70, 70 0 0 1 370, 523 A 70, 70 0 0 0 401, 521 A 70, 70 0 0 1 344, 455 A 70, 70 0 0 0 372, 460 A 70, 70 0 0 1 354, 370 A 195, 195 0 0 0 495, 442 A 67, 67 0 0 1 611, 380 A 117, 117 0 0 0 654, 363 A 65, 65 0 0 1 623, 401 A 117, 117 0 0 0 662, 390 A 65, 65 0 0 1 630, 425 Z"
-                style={{fill:'#3BA9EE'}}></path>
-        </svg>
+  
+<div className="bg-gray-50 dark:bg-black p-10 flex items-center justify-center">
+  <div className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-800 p-4 rounded-xl border max-w-xl">
+    <div className="flex justify-between">
+      <div className="flex items-center">
+        <img className="h-11 w-11 cursor-pointer rounded-full" src="https://pbs.twimg.com/profile_images/1287562748562309122/4RLk5A_U_x96.jpg"/>
+        <div className="ml-1.5 text-sm leading-tight">
+          <span className="text-black dark:text-white font-bold block cursor-pointer ">Visualize Value</span>
+          <span className="text-gray-500 dark:text-gray-400 font-normal cursor-pointer block">@visualizevalue</span>
+        </div>
+      </div>
+      <svg className="text-blue-400 dark:text-white h-6 w-auto inline-block fill-current" viewBox="0 0 24 24"><g><path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path></g></svg>
     </div>
-    <div className=" mt-3 mb-1 leading-normal text-lg">{tweet.content}</div>
-    <div className="text-grey mb-3 text-sm">11:56 AM - Aug 3, 2009</div>
-   
+    <p className="text-black dark:text-white block text-xl leading-snug mt-3">“No one ever made a decision because of a number. They need a story.” — Daniel Kahneman</p>
+    <img className="mt-2 rounded-2xl border border-gray-100 dark:border-gray-700" src="https://pbs.twimg.com/media/EpkuplDXEAEjbFc?format=jpg&name=medium"/>
+    <p className="text-gray-500 dark:text-gray-400 text-base py-1 my-0.5">10:05 AM · Dec 19, 2020</p>
+    <div className="border-gray-200 dark:border-gray-600 border border-b-0 my-1"></div>
+    <div className="text-gray-500 gap-3 dark:text-gray-400 flex mt-3">
+     
+      <LikeBtn/>
+      <ViewBtn/>
+      <CommentBtn/>
+    </div>
+  </div>
 </div>
    </>
   )

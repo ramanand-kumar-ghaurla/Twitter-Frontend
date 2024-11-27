@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchTweet } from './Features/tweetSlice'
+import FollowBtn from '../src/components/tweets/FollowBtn'
 import TweetCard from './components/tweets/TweetCard'
 import LikeBtn from './components/tweets/LikeBtn'
+
 
 
 
@@ -29,7 +30,8 @@ function App() {
   return (
     <>
       <h1>  Tweet Frontend</h1>
-      
+      <TweetCard/>
+      <FollowBtn/>
       
       
     </>

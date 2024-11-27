@@ -1,11 +1,14 @@
-import React from 'react'
+import React,{forwardRef} from 'react'
 
-function ViewBtn() {
+function ViewBtn({
+  viewCount,
+  
+},ref) {
   return (
-    <div>
-      
+    <div ref={ref}>
+        <h1>View</h1>
     </div>
   )
 }
 
-export default ViewBtn
+export default forwardRef(ViewBtn)

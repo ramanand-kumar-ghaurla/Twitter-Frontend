@@ -1,4 +1,4 @@
-import React ,{useEffect, useState}from 'react'
+import React ,{useEffect, useState,forwardRef}from 'react'
 
 import axios from 'axios'
  import {getlikeStatus} from '../../hooks/useLike' 
@@ -12,13 +12,13 @@ function LikeBtn({
   modelType,
   className='',
   ...props
-}) {
+},ref) {
    const [likeStatus, setLikeStatus] = useState()
 
    const toggleLike =  async(tweetId,modelType)=>{
     const response= await axios.post('http://localhost:9000/api/v1/likes/toggle-like',{ },{
        headers:{
-         Authorization:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmQ5OTg0YWI5OTNjZDFlZGU3NTZkYWIiLCJlbWFpbCI6InN1bml0YWFyb3JhQGdtYWlsLmNvbSIsInVzZXJuYW1lIjoic3VuaXRhX2Fyb3JhIiwiZnVsbE5hbWUiOiJTdW5pdGEgQXJvcmEiLCJpYXQiOjE3MzIzNDQ2OTgsImV4cCI6MTczMjQzMTA5OH0.uOoAiZIJQrM6sAYuRXYEqrin4HcUw7SbkDL5XQmecxI'
+         Authorization:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmI3NTk2NjRmZjM0MDk3ZjUyNzY3ZTIiLCJlbWFpbCI6InNvbmlhOTUwMDVAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzb25pYV9yYW5pIiwiZnVsbE5hbWUiOiJTb25pYSBSYW5pIiwiaWF0IjoxNzMyNjgzMDAxLCJleHAiOjE3MzI3Njk0MDF9.4oUqd7oBFo4vxka4WsB3wU_RiZtx-8oWQi0PWUX66yA'
        },
        params:{
          modelType:modelType,
@@ -66,9 +66,9 @@ function LikeBtn({
                 </path>
             </svg>
             </button>
-      <span>616</span></div>
+      <span ref={ref}>616</span></div>
     </div>
   )
 }
 
-export default LikeBtn
+export default forwardRef(LikeBtn)
