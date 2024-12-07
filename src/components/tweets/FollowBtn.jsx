@@ -1,11 +1,11 @@
-import React ,{useState}from 'react'
+import React ,{useState,forwardRef}from 'react'
 import axios from 'axios'
 import {Button} from '@material-tailwind/react'
 
 function FollowBtn({
   username,
   ...props
-}) {
+},ref) {
 
 const [isFollowed, setisFollowed] = useState()
 
@@ -36,6 +36,7 @@ const togglefollow =async(username)=>{
     autoFocus={true}
       className="rounded-full "
       onClick={togglefollow}
+      ref={ref}
       {...props}>
         {isFollowed ? `Following` :`Follow`}
       </Button>
@@ -43,4 +44,4 @@ const togglefollow =async(username)=>{
   )
 }
 
-export default FollowBtn
+export default forwardRef(FollowBtn)

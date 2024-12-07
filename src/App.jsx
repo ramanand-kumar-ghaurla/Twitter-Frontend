@@ -3,6 +3,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import FollowBtn from '../src/components/tweets/FollowBtn'
 import TweetCard from './components/tweets/TweetCard'
 import LikeBtn from './components/tweets/LikeBtn'
+import Avtar from './components/tweets/Avtar'
+import Profile from './components/UserProfile/Profile'
+import PostComment from './components/comments/CommentForm'
+import ProfileCard from './components/UserProfile/ProfileCard'
+import SideBar from './components/Header/SideBar'
+import FilePicker from './components/tweets/filePicker'
+import TweetInput from './components/tweets/TweetInput'
 
 
 
@@ -31,9 +38,11 @@ function App() {
     <>
       <h1>  Tweet Frontend</h1>
       <TweetCard/>
-      <FollowBtn/>
+
+  
+  <TweetInput/>
       
-      
+      <PostComment/>
     </>
   )
 }
