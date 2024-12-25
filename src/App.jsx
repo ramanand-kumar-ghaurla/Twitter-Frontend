@@ -10,6 +10,8 @@ import ProfileCard from './components/UserProfile/ProfileCard'
 import SideBar from './components/Header/SideBar'
 import FilePicker from './components/tweets/filePicker'
 import TweetInput from './components/tweets/TweetInput'
+import Input from './components/User/Input.jsx'
+import LoginForm from './components/User/LoginForm.jsx'
 
 
 
@@ -42,7 +44,7 @@ function App() {
   
   <TweetInput/>
       
-      <PostComment/>
+     <LoginForm/>
     </>
   )
 }
