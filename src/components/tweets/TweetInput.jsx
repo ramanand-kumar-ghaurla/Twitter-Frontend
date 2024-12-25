@@ -2,8 +2,7 @@ import React, { useState, useRef } from 'react';
 import Avtar from './Avtar';
 import FileInput from './filePicker';
 import { Button } from '@material-tailwind/react';
-import axios from 'axios';
-
+import api from '../../helperFunction/axios';
 function TweetInput() {
     const [tweet, setTweet] = useState('');
     const [error, setError] = useState('');
@@ -40,7 +39,7 @@ function TweetInput() {
         });
 
         try {
-            const response = await axios.post('http://localhost:9000/api/v1/tweets/create-tweet', formData, {
+            const response = await api.post('/tweets/create-tweet', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmI3NTk2NjRmZjM0MDk3ZjUyNzY3ZTIiLCJlbWFpbCI6InNvbmlhOTUwMDVAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzb25pYV9yYW5pIiwiZnVsbE5hbWUiOiJTb25pYSBSYW5pIiwiaWF0IjoxNzMzNDcyNTcyLCJleHAiOjE3MzM1NTg5NzJ9.2u6t-cKTyMR6MNELbrQlgwZr3Kq-0SbszeWL_ERer9c'

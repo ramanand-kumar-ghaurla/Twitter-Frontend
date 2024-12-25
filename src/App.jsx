@@ -12,6 +12,7 @@ import FilePicker from './components/tweets/filePicker'
 import TweetInput from './components/tweets/TweetInput'
 import Input from './components/User/Input.jsx'
 import LoginForm from './components/User/LoginForm.jsx'
+import RegisterForm from './components/User/RegisterForm.jsx'
 
 
 
@@ -45,6 +46,7 @@ function App() {
   <TweetInput/>
       
      <LoginForm/>
+     <RegisterForm/>
     </>
   )
 }
