@@ -27,7 +27,7 @@ function LoginForm() {
             ...(isEmail ? { email: data.userInput } : { username: data.userInput }),
             password: data.password,
         };
-        console.log('payload', payload)
+        
 
         try {
             const response = await api.post('/user/login', payload);
@@ -58,11 +58,11 @@ function LoginForm() {
     };
 
     return (
-        <div className='flex items-center justify-center w-full'>
-            <div className='mx-auto w-full max-w-2xl bg-gray-50 rounded-xl p-10 border border-black/10 flex flex-col items-center'>
+        <div className='flex items-center justify-center w-full h-full '>
+            <div className='mx-auto max-w-2xl bg-gray-50 rounded-xl p-10 border border-black/10 flex flex-col justify-evenly  h-[80%] items-center'>
                 <h2 className='text-center text-2xl font-bold leading-tight text-black'>Sign In Your Account</h2>
                 <form onSubmit={handleSubmit(LoginUser)} className='mt-8'>
-                    <div className='space-y-5 text-center flex flex-col items-center'>
+                    <div className='space-y-5 text-center flex flex-col gap-4 items-center'>
 
                         {/* Single Input for Username or Email */}
                         <Input
@@ -104,8 +104,8 @@ function LoginForm() {
                 </form>
 
                 <div className='mt-8'>
-                    <h2 className='text-lg'>Don't Have any Account
-                        <span className='m-4 text-blue-600 font-semibold'>Register Please</span>
+                    <h2 className='text-lg'>Don't Have any Account?
+                        <span className='m-4 text-blue-600 cursor-pointer font-semibold'>Register Please</span>
                     </h2>
                 </div>
                 {error && <p className='text-red-600'>{error}</p>}

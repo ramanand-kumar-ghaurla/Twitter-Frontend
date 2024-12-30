@@ -18,9 +18,7 @@ function LikeBtn({
 
    const toggleLike =  async(tweetId,modelType)=>{
     const response= await api.post('/likes/toggle-like',{ },{
-       headers:{
-         Authorization:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmI3NTk2NjRmZjM0MDk3ZjUyNzY3ZTIiLCJlbWFpbCI6InNvbmlhOTUwMDVAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzb25pYV9yYW5pIiwiZnVsbE5hbWUiOiJTb25pYSBSYW5pIiwiaWF0IjoxNzMyNjgzMDAxLCJleHAiOjE3MzI3Njk0MDF9.4oUqd7oBFo4vxka4WsB3wU_RiZtx-8oWQi0PWUX66yA'
-       },
+      
        params:{
          modelType:modelType,
          modelId:tweetId

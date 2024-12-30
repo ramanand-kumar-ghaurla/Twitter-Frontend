@@ -107,7 +107,7 @@ function RegisterForm() {
 
                 <div className='mt-8'>
                     <h2 className='text-lg'>Already have an Account?
-                        <span className='m-4 text-blue-600 font-semibold'>Login Please</span>
+                        <span className='m-4 text-blue-600 cursor-pointer font-semibold'>Login Please</span>
                     </h2>
                 </div>
                 {error && <p className='text-red-600'>{error}</p>}
