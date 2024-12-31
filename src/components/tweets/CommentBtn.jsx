@@ -13,7 +13,7 @@ function CommentBtn({
                 </path>
             </svg>
       </button>
-            <span>406</span></div>
+            <span>{commentCount}</span></div>
     </div>
   )
 }

@@ -2,7 +2,7 @@ import { Spinner } from "@material-tailwind/react";
  
 export function Loader({
     className = '',
-    color = '',
+    color = 'gray',
     divClass = ''
 }) {
   return (

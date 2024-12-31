@@ -5,8 +5,11 @@ import { GoPlus } from "react-icons/go";
 import { BsTwitterX } from "react-icons/bs";
 import { Link, NavLink,  } from 'react-router-dom';
 import Avtar from '../tweets/Avtar';
+import { nanoid } from '@reduxjs/toolkit';
+import { DeleteAccountBtn } from '../index'
 
 function SideBar() {
+  const id= nanoid()
     const sideItems = [
         {
             name:'',
@@ -32,7 +35,7 @@ function SideBar() {
     ]
   return (
     <>
-      <div className=' flex flex-col justify-between gap-1 h-screen'>
+      <div className=' flex flex-col justify-between gap-1 h-screen p-2'>
       <nav>
       <ul className='flex flex-col gap-y-10 items-center text-4xl p-6'> 
       {sideItems.map((item) => ( <NavLink className={({isActive})=> isActive ? 'text-black-500' : 'text-black'} >
@@ -42,13 +45,17 @@ function SideBar() {
       </NavLink> 
       
         ))} 
-        <li>
-          <NavLink>
+        <li key={id}>
+          <NavLink >
           <Avtar/>
           </NavLink>
-        </li></ul>
+        </li>
        
-      </nav>
+        </ul>
+       </nav>
+     <div className='mx-auto'>
+     <DeleteAccountBtn/>
+     </div>
       </div>
     </>
   )

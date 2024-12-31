@@ -7,40 +7,58 @@ import FollowBtn from '../../components/tweets/FollowBtn'
 
 
 function TweetCard({
-    
+  username ='',
+  fullName='',
+  viewCount,
+  commentCount,
+  likeCount ,
+  content ='',
+  avtarUrl ='',
+  tweetId ,
+  imageurl = []
 }) {
-    // const tweets = useSelector((state)=> state.tweet)
-    // const tweet = tweets.tweets[0]
-
-
-    // if (tweets.tweets=== null) { 
-    //     return <h1 className='text-2xl'>No blogs available</h1>; }
+   
 
   return (
    <>
   
-<div className="bg-gray-50 dark:bg-black p-10 flex items-center justify-center">
-  <div className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-800 p-4 rounded-xl border max-w-xl">
+<div className="bg-gray-50 dark:bg-black p-[0.5px] flex items-center justify-center  min-w-[80%]">
+  <div className="bg-white dark:bg-gray-800 border-gray-200 w-full dark:border-gray-800 p-4 rounded-xl border max-w-xl">
     <div className="flex justify-between">
       <div className="flex items-center">
-        <img className="h-11 w-11 cursor-pointer rounded-full" src="https://pbs.twimg.com/profile_images/1287562748562309122/4RLk5A_U_x96.jpg"/>
+        <img className="h-11 w-11 cursor-pointer rounded-full" src={avtarUrl}/>
         <div className="ml-1.5 text-sm leading-tight">
-          <span className="text-black dark:text-white font-bold block cursor-pointer ">Visualize Value</span>
-          <span className="text-gray-500 dark:text-gray-400 font-normal cursor-pointer block">@visualizevalue</span>
+          <span className="text-black dark:text-white font-bold block cursor-pointer ">{fullName}</span>
+          <span className="text-gray-500 dark:text-gray-400 font-normal cursor-pointer block"> {username} </span>
         </div>
       </div>
       
-     <FollowBtn/>
+     
     </div>
-    <p className="text-black dark:text-white block text-xl leading-snug mt-3">“No one ever made a decision because of a number. They need a story.” — Daniel Kahneman</p>
-    <img className="mt-2 rounded-2xl border border-gray-100 dark:border-gray-700" src="https://pbs.twimg.com/media/EpkuplDXEAEjbFc?format=jpg&name=medium"/>
-    <p className="text-gray-500 dark:text-gray-400 text-base py-1 my-0.5">10:05 AM · Dec 19, 2020</p>
+    <p className="text-black dark:text-white block text-xl leading-snug mt-3">{content} </p>
+    {
+      imageurl.length > 0 && (
+        <div className='flex w-1/2'>
+   {
+    imageurl.map((url)=>(
+      <img className="mt-2 rounded-2xl border border-gray-100 dark:border-gray-700" src={url}/>
+    ))
+   }
+    
+   
+    </div>
+      )
+    }
     <div className="border-gray-200 dark:border-gray-600 border border-b-0 my-1"></div>
     <div className="text-gray-500 gap-3 dark:text-gray-400 flex mt-3 ">
      
-      <LikeBtn/>
-      <ViewBtn/>
-      <CommentBtn/>
+      <LikeBtn modelId = {tweetId}
+        modelType = 'Tweet'
+        likeCount = {likeCount}
+
+      />
+      <ViewBtn viewCount={viewCount}/>
+      <CommentBtn commentCount={commentCount }/>
     </div>
   </div>
 </div>

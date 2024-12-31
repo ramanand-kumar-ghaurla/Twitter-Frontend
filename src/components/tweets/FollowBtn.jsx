@@ -5,35 +5,40 @@ import api from '../../helperFunction/axios'
 
 function FollowBtn({
   username,
+  alreadyFollow,
   ...props
 },ref) {
 
-const [isFollowed, setisFollowed] = useState()
+const [isFollowed, setisFollowed] = useState(alreadyFollow)
 
-const togglefollow =async(username)=>{
+
+const togglefollow =async()=>{
   const response= await api.post(`/follow-service/togglefollow/${username}`,{},{
     headers:{
-       Authorization:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmI3NTk2NjRmZjM0MDk3ZjUyNzY3ZTIiLCJlbWFpbCI6InNvbmlhOTUwMDVAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzb25pYV9yYW5pIiwiZnVsbE5hbWUiOiJTb25pYSBSYW5pIiwiaWF0IjoxNzMyNjgzMDAxLCJleHAiOjE3MzI3Njk0MDF9.4oUqd7oBFo4vxka4WsB3wU_RiZtx-8oWQi0PWUX66yA'
+       Authorization:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmI3NTk2NjRmZjM0MDk3ZjUyNzY3ZTIiLCJlbWFpbCI6InNvbmlhOTUwMDVAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzb25pYV9yYW5pIiwiZnVsbE5hbWUiOiJTb25pYSBSYW5pIiwiaWF0IjoxNzM1NTQwMTcwLCJleHAiOjE3MzU2MjY1NzB9.lTpjyjvAj4fV8hR1E6Aw16wkvA17bjPl-wFduY3qoeU'
     },
     
-  }).catch((error)=>{
+  })
+  const {followStatus} = response.data.data
+   const message = response.data.message
+   
+        
+   setisFollowed(followStatus)
+  .catch((error)=>{
      console.log('error in follow', error)
      console.log(error?.response?.data);
      console.log(error.response.status);
  
     })
 
-   console.log(response)
-   const {followStatus} = response.data.data
-   const message = response.data.message
-   console.log('follow', message)
-        
-   setisFollowed(followStatus)
+   
+   
  }
   return (
     <div>
       <Button variant="filled" 
       color='blue'
+      size={ 'lg'}
     autoFocus={true}
       className="rounded-full "
       onClick={togglefollow}

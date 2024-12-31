@@ -10,7 +10,8 @@ import RegisterForm from "./User/RegisterForm";
 import Profile from "./UserProfile/Profile";
 import ProfileCard from "./UserProfile/ProfileCard";
 import Loader from "./Layouts/Loader";
-
+import DeleteAccountBtn from "./User/DeleteAccountBtn";
+import ProfileSideBar from "./UserProfile/ProfileSideBar";
 
 export  { 
     CommentForm,
@@ -25,4 +26,6 @@ export  {
     TweetCard,
     TweetInput,
     Loader,
+    DeleteAccountBtn,
+    ProfileSideBar
 }

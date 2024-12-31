@@ -2,42 +2,42 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios,{AxiosError} from "axios";
 import api from "../helperFunction/axios";
 
- export const fetchTweet = createAsyncThunk('fetchTweet', async()=>{
-    const response = await api.get('/tweets/get-tweets',{
+ export const fetchulkProfile = createAsyncThunk('fetch-bulk-profile', async()=>{
+    const response = await api.get('/user/get-profiles-bulk',{
         headers:{
             Authorization:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmI3NTk2NjRmZjM0MDk3ZjUyNzY3ZTIiLCJlbWFpbCI6InNvbmlhOTUwMDVAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzb25pYV9yYW5pIiwiZnVsbE5hbWUiOiJTb25pYSBSYW5pIiwiaWF0IjoxNzM1NTQwMTcwLCJleHAiOjE3MzU2MjY1NzB9.lTpjyjvAj4fV8hR1E6Aw16wkvA17bjPl-wFduY3qoeU'
         }
     })
 
     
-    const tweets = response.data.tweets
+    const profiles = response.data.data
     
-    console.log('data', tweets)
-    return tweets
+   
+    return profiles
 })
 
 const initialState ={
-    tweets :null,
+    profiles :null,
     isError: false,
     isLoading:false
 }
 
-const tweetSlice = createSlice({
-    name:'tweet',
+const bulkProfileSlice = createSlice({
+    name:'bulkProfiles',
     initialState:initialState,
     extraReducers: (builder)=>{
-        builder.addCase(fetchTweet.pending,(state,action)=>{
+        builder.addCase(fetchulkProfile.pending,(state,action)=>{
             state.isLoading=true,
             state.isError=false,
-            state.tweets=null
+            state.profiles=null
         })
-        .addCase(fetchTweet.fulfilled,(state,action)=>{
+        .addCase(fetchulkProfile.fulfilled,(state,action)=>{
             state.isError=false,
-            state.tweets = action.payload
+            state.profiles = action.payload
             state.isLoading=false
             
             })
-            .addCase(fetchTweet.rejected,(state,action)=>{
+            .addCase(fetchulkProfile.rejected,(state,action)=>{
                 state.isError=true,
                 console.log('errors',action.error)
                 state.isLoading=false
@@ -47,4 +47,4 @@ const tweetSlice = createSlice({
   
 })
 
-export default tweetSlice.reducer
+export default bulkProfileSlice.reducer

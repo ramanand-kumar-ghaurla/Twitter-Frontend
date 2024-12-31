@@ -61,11 +61,11 @@ function TweetInput() {
     };
 
     return (
-        <div className='flex gap-4 p-3 w-[90%] border rounded-md h-1/4 border-gray-300 mx-auto '>
+        <div className='flex gap-4 p-2 w-full  border rounded-md h-1/4 border-gray-300 mx-auto '>
             <div>
                 <Avtar />
             </div>
-            <div className='w-full'>
+            <div className='w-[90%]'>
                 <form onSubmit={handleSubmit}>
                     <textarea
                         placeholder='What is happening?'

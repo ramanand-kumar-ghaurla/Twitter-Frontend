@@ -7,6 +7,7 @@ function ProfileCard({
     fullName,
     username,
     avtarURL,
+    alreadyFollow
 
 }) {
   return (
@@ -17,11 +18,11 @@ function ProfileCard({
         <div className='flex items-center gap-2 cursor-pointer'>
         <Avtar {...{size:'lg',avtarURL:avtarURL}}/>
         <div >
-            <h1 className='font-bold text-lg'>{`fullName`}</h1>
-            <h1 className=' text-blue-gray-400 text-base'>@{`username`}</h1>
+            <h1 className='font-bold text-lg'>{fullName}</h1>
+            <h1 className=' text-blue-gray-400 text-base'>@{username}</h1>
         </div>
         </div>
-        <FollowBtn/>
+        <FollowBtn username={username} alreadyFollow={alreadyFollow} size='sm' />
         </div>
       </div>
     </>
