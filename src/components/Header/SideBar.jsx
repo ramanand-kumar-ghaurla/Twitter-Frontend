@@ -13,22 +13,26 @@ function SideBar() {
     const sideItems = [
         {
             name:'',
-            URL: '/feed',
+            id:'logoBtn',
+            URL: '/',
             icon:<BsTwitterX/>
         },
         {
             name:'Home',
-            URL: '/feed',
+            id:'homeBtn',
+            URL: '/',
             icon:<MdHome/>
         },
        
         {
             name:'Profile',
+            id:'profileBtn',
             URL: '/profile',
             icon:<FaUser/>
         },
         {
             name:'Post',
+            id:'postBtn',
             URL: '/post-tweet',
             icon:<GoPlus/>
         }
@@ -39,7 +43,7 @@ function SideBar() {
       <nav>
       <ul className='flex flex-col gap-y-10 items-center text-4xl p-6'> 
       {sideItems.map((item) => ( <NavLink className={({isActive})=> isActive ? 'text-black-500' : 'text-black'} >
-        <li className={`relative group cursor-pointer duration-200 p-3 rounded-full mx-auto `} key={item.name} >
+        <li className={`relative group cursor-pointer duration-200 p-3 rounded-full mx-auto `} key={item.id} >
        {item.icon} <span className="absolute top-full  transform -translate-y-1/2 mt-2 -ml-1 bg-gray-500 text-white text-sm px-3 py-1 rounded-md opacity-0 group-hover:opacity-100">
         {item.name} </span> </li>
       </NavLink> 

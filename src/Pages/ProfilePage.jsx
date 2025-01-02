@@ -1,11 +1,10 @@
 import React from 'react'
+import { Profile } from '../components/index'
 
 function ProfilePage() {
-  return (
-    <div>
-      <h1>this is prifile page</h1>
-    </div>
-  )
+ return (
+  <Profile />
+ )
 }
 
 export default ProfilePage

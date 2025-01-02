@@ -6,6 +6,7 @@ import {SideBar,ProfileSideBar} from '../components/index'
 
 import FixedBar from '../components/Header/FixedBar';
 import HomePage from './HomePage';
+import ProfilePage from './ProfilePage';
 
 function PageLayout() {
   
@@ -17,11 +18,11 @@ function PageLayout() {
         <div className='col-span-2 h-full overflow-hidden '>  
         <SideBar/>
         </div>
-        <div className='col-span-6  border-l-2 border-gray-300 p-4 border-r-2'>
+        <div className='col-span-6  border-l-2 border-gray-300  border-r-2'>
 
         <FixedBar/>
-        <div className='   overflow-scroll w-full h-screen '>
-       <HomePage/>
+        <div className='overflow-scroll w-full h-screen '>
+       <ProfilePage/>
         <Outlet/>
        
         </div>
