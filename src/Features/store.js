@@ -3,12 +3,14 @@ import tweetReducer from '../Features/tweetSlice'
 import authReducer from '../Features/authSclice'
 import profileReducer from '../Features/profileSlice'
 import bulkProfileReducer from '../Features/bulkProfile'
+import specificTweetReducer from '../Features/OneTweet'
 const store = configureStore({
     reducer:{
-        tweet : tweetReducer,
+        tweetBulk : tweetReducer,
         auth :  authReducer,
         profile: profileReducer,
-        bulkProfiles:bulkProfileReducer
+        bulkProfiles:bulkProfileReducer,
+        tweet:specificTweetSlice
     }
 })
 

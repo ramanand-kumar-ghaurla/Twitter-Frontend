@@ -6,6 +6,7 @@ import { Button } from '@material-tailwind/react';
 import Input from './Input';
 import { login as authLogin } from '../../Features/authSclice';
 import api from '../../helperFunction/axios';
+import { Link } from 'react-router-dom';
 
 function RegisterForm() {
     const dispatch = useDispatch();
@@ -107,8 +108,9 @@ function RegisterForm() {
 
                 <div className='mt-8'>
                     <h2 className='text-lg'>Already have an Account?
+                        <Link to={'/login'}>
                         <span className='m-4 text-blue-600 cursor-pointer font-semibold'>Login Please</span>
-                    </h2>
+                        </Link>   </h2>
                 </div>
                 {error && <p className='text-red-600'>{error}</p>}
             </div>

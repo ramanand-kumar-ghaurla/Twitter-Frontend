@@ -4,10 +4,12 @@ import api from '../../helperFunction/axios'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { logout as storeLogout} from '../../Features/authSclice'
+import {  useNavigate } from 'react-router-dom'
 
 
 function LogoutBtn() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const logoutUser = async()=>{
       const response = await api.post('/user/logout')
@@ -18,7 +20,10 @@ function LogoutBtn() {
     
        })
        dispatch(storeLogout())
+       navigate('/login')
+
        const data= response.data
+      
        return data
   }
   return (

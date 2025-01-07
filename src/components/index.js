@@ -13,6 +13,7 @@ import Loader from "./Layouts/Loader";
 import DeleteAccountBtn from "./User/DeleteAccountBtn";
 import ProfileSideBar from "./UserProfile/ProfileSideBar";
 import ProfileTabBar from "./UserProfile/ProfileTabBar";
+import AuthLayout from './Layouts/AuthLayout'
 
 export  { 
     CommentForm,
@@ -29,5 +30,6 @@ export  {
     Loader,
     DeleteAccountBtn,
     ProfileSideBar,
-    ProfileTabBar
+    ProfileTabBar,
+    AuthLayout
 }

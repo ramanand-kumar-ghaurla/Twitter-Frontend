@@ -1,15 +1,11 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import LoginPage from './Pages/LoginPage'
-import RegistrationPage from './Pages/RegistrationPage'
-import TweetPage from './Pages/TweetPage'
-import { Spinner } from "@material-tailwind/react";
-import Loader from './components/Layouts/Loader'
+
 import PageLayout from './Pages/PageLayout'
 import { fetchulkProfile } from './Features/bulkProfile'
 import { fetchTweet } from './Features/tweetSlice'
-import { TweetCard } from './components'
-import HomePage from './Pages/HomePage'
+import api from './helperFunction/axios'
+
 
  
 
@@ -17,12 +13,19 @@ import HomePage from './Pages/HomePage'
 
 
 function App() {
-  const dispatch = useDispatch(fetchulkProfile())
+  const dispatch = useDispatch()
+
+  
+  const getAccessToken = async()=>{
+    const response = await api.post('/user/referesh-access-token',{})
+  }
+ 
 
  useEffect(()=>{
 
     dispatch(fetchulkProfile())
     dispatch(fetchTweet())
+   getAccessToken()
   },[])
 
   

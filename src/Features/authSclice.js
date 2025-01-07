@@ -1,30 +1,25 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios,{AxiosError} from "axios";
-
- 
-
-const initialState ={
-   
-    isAuthenticated:false,
-    userData:null,
-    
-}
+import { createSlice } from "@reduxjs/toolkit";
 
 const authSlice = createSlice({
-    name:'auth',
-    initialState:initialState,
-    reducers:{
-        login : (state,action)=>{
-            state.isAuthenticated=true,
-            state.userData=action.payload
+    name: "auth",
+    initialState: {
+        isAuthenticated: JSON.parse(localStorage.getItem("isAuthenticated")) || false,
+        userData: JSON.parse(localStorage.getItem("userData")) || null,
+    },
+    reducers: {
+        login: (state, action) => {
+            state.isAuthenticated = true;
+            state.userData = action.payload;
+            localStorage.setItem("isAuthenticated", true);
+            localStorage.setItem("userData", JSON.stringify(action.payload));
         },
-        logout: (state,action)=>{
-            state.isAuthenticated= false,
-            state.userData = null
-        }
-    }
-  
-})
-
-export const {login,logout} = authSlice.actions
+        logout: (state) => {
+            state.isAuthenticated = false;
+            state.userData = null;
+            localStorage.removeItem("isAuthenticated");
+            localStorage.removeItem("userData");
+        },
+    },
+});
+export const{login,logout} = authSlice.actions
 export default authSlice.reducer

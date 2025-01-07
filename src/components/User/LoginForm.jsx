@@ -6,6 +6,8 @@ import { Button } from '@material-tailwind/react';
 import Input from './Input'; // Assuming this is your updated Input component
 import { login as authLogin } from '../../Features/authSclice';
 import api from '../../helperFunction/axios';
+import { Link } from 'react-router-dom';
+
 
 function LoginForm() {
     
@@ -36,6 +38,7 @@ function LoginForm() {
             
             if (userData) {
                 dispatch(authLogin(userData));
+                console.log('auth slice called')
                 reset(); // Reset form fields on success
                
             }
@@ -105,8 +108,10 @@ function LoginForm() {
 
                 <div className='mt-8'>
                     <h2 className='text-lg'>Don't Have any Account?
-                        <span className='m-4 text-blue-600 cursor-pointer font-semibold'>Register Please</span>
-                    </h2>
+                       <Link to={'/register'} >
+                       <span className='m-4 text-blue-600 cursor-pointer font-semibold'>Register Please</span>
+                
+                       </Link>    </h2>
                 </div>
                 {error && <p className='text-red-600'>{error}</p>}
             </div>

@@ -22,7 +22,7 @@ function PageLayout() {
 
         <FixedBar/>
         <div className='overflow-scroll w-full h-screen '>
-       <ProfilePage/>
+       
         <Outlet/>
        
         </div>

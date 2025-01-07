@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import {TweetCard,TweetInput , Loader} from '../components/index'
 
 function HomePage() {
-const tweets = useSelector((state)=> state.tweet)
+const tweets = useSelector((state)=> state.tweetBulk)
 console.log('tweets in home page' , tweets)
 
 if(tweets.isLoading) return (
@@ -46,7 +46,7 @@ if(tweets === null && tweets.isLoading ===false) return (
             )
         })) 
        )  :(   <div className='h-full flex justify-center items-center '>
-         <h1 className='font-bold text-2xl' > No Profile to Show </h1>
+         <h1 className='font-bold text-2xl' > No Tweets to Show </h1>
        </div>)    }
     </div>
     </div>

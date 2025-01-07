@@ -6,7 +6,7 @@ import { BsTwitterX } from "react-icons/bs";
 import { Link, NavLink,  } from 'react-router-dom';
 import Avtar from '../tweets/Avtar';
 import { nanoid } from '@reduxjs/toolkit';
-import { DeleteAccountBtn } from '../index'
+import { DeleteAccountBtn, LogoutBtn } from '../index'
 
 function SideBar() {
   const id= nanoid()
@@ -54,12 +54,19 @@ function SideBar() {
           <Avtar/>
           </NavLink>
         </li>
-       
+       <li>
+       <div className='mx-auto'>
+     <LogoutBtn />
+     </div>
+       </li>
         </ul>
        </nav>
+      
+
      <div className='mx-auto'>
      <DeleteAccountBtn/>
      </div>
+     
       </div>
     </>
   )

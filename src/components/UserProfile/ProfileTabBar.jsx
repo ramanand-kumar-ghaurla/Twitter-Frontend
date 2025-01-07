@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import api from '../../helperFunction/axios';
-import { ProfileCard,Loader } from '../index';
+import { ProfileCard,Loader, TweetCard } from '../index';
 import { useSelector } from 'react-redux';
 
  
@@ -10,17 +10,21 @@ function ProfileTabBar() {
   const [activeTab, setActiveTab] = useState('Posts');
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const userData = useSelector((state)=>state.profile)
+  const {profileData} = useSelector((state)=> state.profile)
+  // console.log('profile in profile page',profileData)
+ 
+  const posts = profileData?.posts
+  const username = String(profileData?.username)
+ 
+ 
 
   const getFollowAndFollowing = async (tabName, request, username) => {
     setActiveTab(tabName);
     setLoading(true);
+    console.log('username in get follow',username)
     try {
       const response = await api.get(`/follow-service/get-${request}/${username}`, {
-        headers: {
-          Authorization:
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmI3NTk2NjRmZjM0MDk3ZjUyNzY3ZTIiLCJlbWFpbCI6InNvbmlhOTUwMDVAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzb25pYV9yYW5pIiwiZnVsbE5hbWUiOiJTb25pYSBSYW5pIiwiaWF0IjoxNzM1Nzk1ODk1LCJleHAiOjE3MzU4ODIyOTV9.UtgGPDmcEGyTL4xG7cy9m3A2x2_F_0i2Tp_1C8POF7Q',
-        },
+       
       });
       const responseData = response.data.data;
       setData(responseData || []);
@@ -38,9 +42,20 @@ function ProfileTabBar() {
     }
 
     if (activeTab === 'Posts') {
-      return data.length > 0 ? (<h1>Posts</h1>) : (
-        <h1 className='font-bold text-2xl text-center mt-[50%]' >No Posts Available</h1>
-      );
+      return posts ? (
+        posts.length > 0 ? (
+          posts.map((post)=>(
+          <TweetCard 
+            content={post.content}
+            commentCount={post.comments}
+            likeCount={post.likes}
+            fullName={profileData.fullName}
+            username={profileData.fullName}
+            viewCount={post.views}
+          />
+          ))
+        ) : (<h1>`{profileData.username} Don't Have Post Yet`</h1>)
+      ):( <h1 className='font-bold text-2xl text-center mt-[50%]' >No Posts Available</h1>)
     }
 
     if (activeTab === 'Followers') {
@@ -51,6 +66,7 @@ function ProfileTabBar() {
               key={follower._id}
               fullName={follower.follower.fullName}
               username={follower.follower.username}
+              
             />
           ) : null
         )
@@ -67,6 +83,7 @@ function ProfileTabBar() {
               key={following._id}
               fullName={following.following.fullName}
               username={following.following.username}
+
             />
           ) : null
         )
@@ -98,7 +115,7 @@ function ProfileTabBar() {
               className={`cursor-pointer pb-4 font-light ${
                 activeTab === 'Followers' ? 'font-bold border-b-4 pb-4 border-light-blue-600' : ''
               }`}
-              onClick={() => getFollowAndFollowing('Followers', 'follower', 'sonia_rani')}
+              onClick={() => getFollowAndFollowing('Followers', 'follower', `${username}`)}
             >
               Followers
             </button>
@@ -108,7 +125,7 @@ function ProfileTabBar() {
               className={`cursor-pointer pb-4 font-light ${
                 activeTab === 'Following' ? 'font-bold border-b-4 pb-4 border-light-blue-600' : ''
               }`}
-              onClick={() => getFollowAndFollowing('Following', 'following', 'sonia_rani')}
+              onClick={() => getFollowAndFollowing('Following', 'following',` ${username}`)}
             >
               Following
             </button>

@@ -1,9 +1,9 @@
-import React from 'react'
+import React,{useRef} from 'react'
 import { useSelector } from 'react-redux'
 import LikeBtn from './LikeBtn'
 import ViewBtn from './ViewBtn'
 import CommentBtn from './CommentBtn'
-import FollowBtn from '../../components/tweets/FollowBtn'
+import useFetchUserProfile from '../../hooks/useFetchProfile'
 
 
 function TweetCard({
@@ -18,14 +18,15 @@ function TweetCard({
   imageurl = []
 }) {
    
-
+ 
+ const fetchUserProfile = useFetchUserProfile()
   return (
    <>
   
 <div className="bg-gray-50 dark:bg-black p-[0.5px] flex items-center justify-center  min-w-[80%]">
   <div className="bg-white dark:bg-gray-800 border-gray-200 w-full dark:border-gray-800 p-4 rounded-xl border max-w-xl">
     <div className="flex justify-between">
-      <div className="flex items-center">
+      <div className="flex items-center" onClick={()=> fetchUserProfile(username)}>
         <img className="h-11 w-11 cursor-pointer rounded-full" src={avtarUrl}/>
         <div className="ml-1.5 text-sm leading-tight">
           <span className="text-black dark:text-white font-bold block cursor-pointer ">{fullName}</span>

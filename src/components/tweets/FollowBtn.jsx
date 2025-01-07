@@ -10,28 +10,26 @@ function FollowBtn({
 },ref) {
 
 const [isFollowed, setisFollowed] = useState(alreadyFollow)
+console.log(`${username } :like status => ref ${ref} =`,alreadyFollow)
 
 
 const togglefollow =async()=>{
   const response= await api.post(`/follow-service/togglefollow/${username}`,{},{
-    headers:{
-       Authorization:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmI3NTk2NjRmZjM0MDk3ZjUyNzY3ZTIiLCJlbWFpbCI6InNvbmlhOTUwMDVAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzb25pYV9yYW5pIiwiZnVsbE5hbWUiOiJTb25pYSBSYW5pIiwiaWF0IjoxNzM1NTQwMTcwLCJleHAiOjE3MzU2MjY1NzB9.lTpjyjvAj4fV8hR1E6Aw16wkvA17bjPl-wFduY3qoeU'
-    },
+    
     
   })
-  const {followStatus} = response.data.data
-   const message = response.data.message
-   
-        
-   setisFollowed(followStatus)
-  .catch((error)=>{
+ .catch((error)=>{
      console.log('error in follow', error)
      console.log(error?.response?.data);
      console.log(error.response.status);
  
     })
 
+    const {followStatus} = response.data.data
+   const message = response.data.message
    
+   
+   setisFollowed(followStatus)
    
  }
   return (
@@ -44,7 +42,7 @@ const togglefollow =async()=>{
       onClick={togglefollow}
       ref={ref}
       {...props}>
-        {isFollowed ? `Following` :`Follow`}
+        {isFollowed ? (isFollowed ? `Following` :`Follow`): (alreadyFollow ===true ? `following` :`follow`)}
       </Button>
     </div>
   )

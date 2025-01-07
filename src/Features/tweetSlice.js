@@ -4,9 +4,7 @@ import api from "../helperFunction/axios";
 
  export const fetchTweet = createAsyncThunk('fetchTweet', async()=>{
     const response = await api.get('/tweets/get-tweets',{
-        headers:{
-            Authorization:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmI3NTk2NjRmZjM0MDk3ZjUyNzY3ZTIiLCJlbWFpbCI6InNvbmlhOTUwMDVAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzb25pYV9yYW5pIiwiZnVsbE5hbWUiOiJTb25pYSBSYW5pIiwiaWF0IjoxNzM1NTQwMTcwLCJleHAiOjE3MzU2MjY1NzB9.lTpjyjvAj4fV8hR1E6Aw16wkvA17bjPl-wFduY3qoeU'
-        }
+      
     })
 
     
@@ -23,7 +21,7 @@ const initialState ={
 }
 
 const tweetSlice = createSlice({
-    name:'tweet',
+    name:'tweetBulk',
     initialState:initialState,
     extraReducers: (builder)=>{
         builder.addCase(fetchTweet.pending,(state,action)=>{
