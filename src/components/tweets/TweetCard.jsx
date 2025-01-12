@@ -2,8 +2,9 @@ import React,{useRef} from 'react'
 import { useSelector } from 'react-redux'
 import LikeBtn from './LikeBtn'
 import ViewBtn from './ViewBtn'
-import CommentBtn from './CommentBtn'
+import CommentBtn from '../comments/CommentBtn'
 import useFetchUserProfile from '../../hooks/useFetchProfile'
+import  useFetchTweet from '../../hooks/useFetchTweet'
 
 
 function TweetCard({
@@ -18,12 +19,12 @@ function TweetCard({
   imageurl = []
 }) {
    
- 
+ const fetchTweet = useFetchTweet()
  const fetchUserProfile = useFetchUserProfile()
   return (
    <>
   
-<div className="bg-gray-50 dark:bg-black p-[0.5px] flex items-center justify-center  min-w-[80%]">
+<div className="bg-gray-50 dark:bg-black p-[0.5px] flex items-center justify-center  min-w-[80%]" >
   <div className="bg-white dark:bg-gray-800 border-gray-200 w-full dark:border-gray-800 p-4 rounded-xl border max-w-xl">
     <div className="flex justify-between">
       <div className="flex items-center" onClick={()=> fetchUserProfile(username)}>
@@ -35,7 +36,8 @@ function TweetCard({
       </div>
       
      
-    </div>
+    </div >
+    <div onClick={()=>fetchTweet(tweetId,true)}>
     <p className="text-black dark:text-white block text-xl leading-snug mt-3">{content} </p>
     {
       imageurl.length > 0 && (
@@ -50,6 +52,7 @@ function TweetCard({
     </div>
       )
     }
+    </div>
     <div className="border-gray-200 dark:border-gray-600 border border-b-0 my-1"></div>
     <div className="text-gray-500 gap-3 dark:text-gray-400 flex mt-3 ">
      

@@ -15,6 +15,7 @@ function ProfileTabBar() {
  
   const posts = profileData?.posts
   const username = String(profileData?.username)
+  
  
  
 
@@ -52,6 +53,8 @@ function ProfileTabBar() {
             fullName={profileData.fullName}
             username={profileData.fullName}
             viewCount={post.views}
+            tweetId={post._id}
+            key={post._id}
           />
           ))
         ) : (<h1>`{profileData.username} Don't Have Post Yet`</h1>)

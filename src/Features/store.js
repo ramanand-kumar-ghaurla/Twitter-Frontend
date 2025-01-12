@@ -10,7 +10,7 @@ const store = configureStore({
         auth :  authReducer,
         profile: profileReducer,
         bulkProfiles:bulkProfileReducer,
-        tweet:specificTweetSlice
+        tweet:specificTweetReducer
     }
 })
 

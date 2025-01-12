@@ -24,6 +24,9 @@ useEffect(()=>{
   const followRef = useRef()
   
   const {profileData} = useSelector((state)=> state.profile)
+  if(!profileData){
+    navigate('/error')
+  }
   // console.log('profile in profile page',profileData)
  
   // console.log('already follow',profileData?.followStatus)

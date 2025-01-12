@@ -1,15 +1,51 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import useFetchTweet from '../../hooks/useFetchTweet'
 import { useSelector } from 'react-redux'
+import { useNavigate,useParams } from 'react-router-dom'
+import TweetCard from './TweetCard'
+import TweetTabBar from './TweetTabBar'
+
 
 
 function Tweet() {
+    let {tweetId} = useParams()
+   
 
-    const tweet = useSelector((state)=> state.tweet)
+    const fetchTweet = useFetchTweet()
+    const navigate  = useNavigate()
+
+    useEffect(()=>{
+        fetchTweet(tweetId,false).catch((error)=>{
+            console.log('error in fetching tweet',error)
+            navigate('/error')
+        })
+    },[tweetId])
+
+    const {tweet} = useSelector((state)=> state.tweet)
+    
   return (
-    <div>
-      
-    </div>
+    <>
+      <div className='w-full'>
+    {
+      tweet &&   <TweetCard 
+            content={tweet.content}
+            commentCount={tweet.commentCount}
+            likeCount={tweet.likeCount}
+            fullName={tweet.postedBy.fullName}
+            username={tweet.postedBy.fullName}
+            viewCount={tweet.viewCount}
+            tweetId={tweet._id}
+            key={tweet._id}
+          />
+    }
+
+      </div>
+
+      <div>
+        <TweetTabBar tweetId={tweetId}/>
+      </div>
+     
+    </>
   )
 }
 

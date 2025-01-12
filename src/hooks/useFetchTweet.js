@@ -13,7 +13,7 @@ const useFetchTweet = () => {
             const response = await api.get(`/tweets/tweet/${tweetId}`);
             const data = response.data.data;
 
-            console.log('response',response)
+            console.log('tweet',data)
             if (response) {
                 dispatch(addTweet(data)); // Update Redux store
             }

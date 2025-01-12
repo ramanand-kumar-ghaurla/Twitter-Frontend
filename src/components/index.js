@@ -14,6 +14,12 @@ import DeleteAccountBtn from "./User/DeleteAccountBtn";
 import ProfileSideBar from "./UserProfile/ProfileSideBar";
 import ProfileTabBar from "./UserProfile/ProfileTabBar";
 import AuthLayout from './Layouts/AuthLayout'
+import Tweet from "./tweets/Tweet";
+import TweetTabBar from "./tweets/TweetTabBar";
+import Comment from "./comments/Comment";
+import CommentCard from "./comments/CommentCard";
+import LikeBtn from "./tweets/LikeBtn";
+import ReplyBtn from "./comments/ReplyBtn";
 
 export  { 
     CommentForm,
@@ -31,5 +37,11 @@ export  {
     DeleteAccountBtn,
     ProfileSideBar,
     ProfileTabBar,
-    AuthLayout
+    AuthLayout,
+    Tweet,
+    TweetTabBar,
+    Comment,
+    CommentCard,
+    LikeBtn,
+    ReplyBtn
 }

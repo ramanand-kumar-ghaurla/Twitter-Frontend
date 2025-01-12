@@ -1,11 +1,11 @@
 import React from 'react'
+import { Tweet } from '../components'
 
 
 function TweetPage() {
   return (
     <div>
-    <h1>this is tweet page</h1>
-      <FaArrowLeft/>
+   <Tweet/>
     </div>
   )
 }

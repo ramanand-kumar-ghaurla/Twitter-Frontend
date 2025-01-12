@@ -1,8 +1,12 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React,{useEffect} from 'react'
+import { useSelector,useDispatch } from 'react-redux'
 import {TweetCard,TweetInput , Loader} from '../components/index'
+import { logout as storeLogout ,login} from '../Features/authSclice'
 
 function HomePage() {
+  const dispatch = useDispatch()
+  
+
 const tweets = useSelector((state)=> state.tweetBulk)
 console.log('tweets in home page' , tweets)
 

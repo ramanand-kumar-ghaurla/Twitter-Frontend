@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { logout as storeLogout ,login} from './Features/authSclice'
 
 import PageLayout from './Pages/PageLayout'
 import { fetchulkProfile } from './Features/bulkProfile'
@@ -18,14 +19,23 @@ function App() {
   
   const getAccessToken = async()=>{
     const response = await api.post('/user/referesh-access-token',{})
+            .catch((error)=>{
+            console.log('error in refresh token',error)
+            dispatch(storeLogout())
+    })
+
+    const user = response.data.data
+    console.log('user',user)
+    dispatch(login(user))
   }
+
  
 
  useEffect(()=>{
-
+    getAccessToken()
     dispatch(fetchulkProfile())
     dispatch(fetchTweet())
-   getAccessToken()
+   
   },[])
 
   
