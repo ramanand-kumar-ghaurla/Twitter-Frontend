@@ -34,7 +34,7 @@ function App() {
  useEffect(()=>{
     getAccessToken()
     dispatch(fetchulkProfile())
-    dispatch(fetchTweet())
+    dispatch(fetchTweet({pageNo :1}))
    
   },[])
 

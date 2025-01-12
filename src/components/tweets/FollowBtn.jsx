@@ -10,7 +10,7 @@ function FollowBtn({
 },ref) {
 
 const [isFollowed, setisFollowed] = useState(alreadyFollow)
-console.log(`${username } :like status => ref ${ref} =`,alreadyFollow)
+
 
 
 const togglefollow =async()=>{
