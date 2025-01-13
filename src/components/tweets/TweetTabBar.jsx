@@ -18,7 +18,7 @@ function TweetTabBar({
     const getCommentOfTweet = async()=>{
       setActiveTab('Comments')
       setLoading(true)
-      const response = await api.get(`/comments/tweet-comments/66c38c5db49593c537377284`)
+      const response = await api.get(`/comments/tweet-comments/${tweetId}`)
       .catch((error)=>{
         console.log('error in getting comments',error)
         setLoading(false)

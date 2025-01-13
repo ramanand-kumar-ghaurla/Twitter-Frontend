@@ -1,6 +1,6 @@
 import React,{useEffect, useRef} from 'react'
 
-import { FollowBtn,ProfileTabBar } from '../index'
+import { Avtar, FollowBtn,ProfileTabBar } from '../index'
 import { useSelector } from 'react-redux'
 import useFetchUserProfile from '../../hooks/useFetchProfile'
 import { useParams } from 'react-router-dom'
@@ -38,7 +38,9 @@ useEffect(()=>{
      {/* cover,avtar,follow  div */}
      <div className='cursor-pointer'>
       <div className='w-full h-36 border border-black -z-10 relative cursor-pointer '>
-      <div className='rounded-full border-[3px] border-black z-10  h-36 w-36 absolute top-20 left-4 cursor-pointer'></div>
+      <div className='rounded-full border-[3px] border-black z-10  h-36 w-36 absolute top-20 left-4 cursor-pointer'>
+       <Avtar avtarURL={profileData?.avtar?.url} size='2xl' className='h-full w-full ' DivClass='h-full w-full' fullName={profileData?.fullName}/>
+      </div>
       <div className=' absolute top-40 right-10 cursor-pointer z-10'> <FollowBtn username={profileData?.username} alreadyFollow={profileData?.followStatus}  ref={followRef} /></div>
       </div>
 

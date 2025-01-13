@@ -2,7 +2,7 @@
     import axios,{AxiosError} from "axios";
     import api from "../helperFunction/axios";
 
-    export const fetchTweet = createAsyncThunk('fetchTweet', async({pageNo=1})=>{
+    export const fetchTweet = createAsyncThunk('fetchTweet', async(pageNo=1)=>{
         const response = await api.get('/tweets/get-tweets',{
         params:{ pageNo}
         })

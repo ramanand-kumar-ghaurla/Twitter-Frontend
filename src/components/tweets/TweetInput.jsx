@@ -1,9 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef ,forwardRef} from 'react';
 import Avtar from './Avtar';
 import FileInput from './filePicker';
 import { Button } from '@material-tailwind/react';
 import api from '../../helperFunction/axios';
+import { useSelector } from 'react-redux';
 function TweetInput() {
+    const loggedInUser = useSelector((state)=>state?.auth?.userData)
+
     const [tweet, setTweet] = useState('');
     const [error, setError] = useState('');
     const fileInputRef = useRef(null);
@@ -63,7 +66,7 @@ function TweetInput() {
     return (
         <div className='flex gap-4 p-2 w-full  border rounded-md h-1/4 border-gray-300 mx-auto '>
             <div>
-                <Avtar />
+                <Avtar fullName={loggedInUser?.user?.fullName} avtarURL={loggedInUser?.user?.avtar?.url}/>
             </div>
             <div className='w-[90%]'>
                 <form onSubmit={handleSubmit}>
@@ -93,4 +96,4 @@ function TweetInput() {
     );
 }
 
-export default TweetInput;
+export default forwardRef(TweetInput);

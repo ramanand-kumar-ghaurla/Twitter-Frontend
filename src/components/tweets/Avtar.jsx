@@ -4,15 +4,20 @@ import {Avatar} from '@material-tailwind/react'
 
 function Avtar({
     size='xl',
-    avtarURL
+    fullName,
+    avtarURL='',
+    className='',
+    DivClass=''
 
 }) {
+
+  const defaultUrl =`https://ui-avatars.com/api/?name=${fullName}&font=bold&rounded=full`
   return (
-    <div>
+    <div className={` flex justify-center  items-center ${DivClass}`}>
       <Avatar
-      src='https://res.cloudinary.com/twitter-project/image/upload/v1725515150/Twitter-Project/user/avtar/xkajmpcz0lc1ruo27opr.png'
+        src={ avtarURL === '' ? defaultUrl : avtarURL}
         withBorder={true}
-        className="p-0.5 "
+        className={`p-0.5 ${className}`}
         size={size}
       />
     </div>

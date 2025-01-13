@@ -15,6 +15,7 @@ function ProfileTabBar() {
  
   const posts = profileData?.posts
   const username = String(profileData?.username)
+  const avtarURL = profileData?.avtar?.url
   
  
  
@@ -28,6 +29,7 @@ function ProfileTabBar() {
        
       });
       const responseData = response.data.data;
+      console.log('follower',responseData)
       setData(responseData || []);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -55,6 +57,7 @@ function ProfileTabBar() {
             viewCount={post.views}
             tweetId={post._id}
             key={post._id}
+            avtarUrl={avtarURL}
           />
           ))
         ) : (<h1>`{profileData.username} Don't Have Post Yet`</h1>)
@@ -69,6 +72,7 @@ function ProfileTabBar() {
               key={follower._id}
               fullName={follower.follower.fullName}
               username={follower.follower.username}
+              avtarURL={follower.follower?.avtar?.url}
               
             />
           ) : null
@@ -86,6 +90,7 @@ function ProfileTabBar() {
               key={following._id}
               fullName={following.following.fullName}
               username={following.following.username}
+              avtarURL={following.following?.avtar?.url}
 
             />
           ) : null

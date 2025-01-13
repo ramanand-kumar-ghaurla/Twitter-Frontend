@@ -11,14 +11,13 @@ function HomePage() {
   
 
 const tweets = useSelector((state)=> state.tweetBulk)
-console.log('tweets in home page' , tweets.tweets)
 
 
-const isLoadMore = ()=>{
-  if(tweets.hasMore === true){
-    dispatch(fetchTweet({pageNo: tweets.pageNo +1}))
+const isLoadMore = () => {
+  if (tweets.hasMore) {
+    dispatch(fetchTweet(tweets.pageNo + 1)); // Increment pageNo
   }
-}
+};
 
 if(tweets.isLoading  && tweets.pageNo === 1) return (
   <Loader/>
@@ -55,6 +54,7 @@ if(tweets === null && tweets.isLoading ===false) return (
                 tweetId = {tweet._id}
                 username={tweet.postedBy[0].username}
                 fullName={tweet.postedBy[0].fullName}
+                avtarUrl={tweet.postedBy[0]?.avtar?.url}
                         key={tweet._id}
                      />
             )
@@ -77,6 +77,8 @@ if(tweets === null && tweets.isLoading ===false) return (
       />)
      }
     </div>
+
+
     </div>
     </div>
   )

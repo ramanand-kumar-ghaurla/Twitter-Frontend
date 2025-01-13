@@ -36,6 +36,7 @@ function Tweet() {
             viewCount={tweet.viewCount}
             tweetId={tweet._id}
             key={tweet._id}
+            avtarUrl={tweet.postedBy?.avtar?.url}
           />
     }
 

@@ -33,7 +33,7 @@ function App() {
 
  useEffect(()=>{
     getAccessToken()
-    dispatch(fetchulkProfile())
+    dispatch(fetchulkProfile({pageNo:1}))
     dispatch(fetchTweet({pageNo :1}))
    
   },[])
