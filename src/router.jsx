@@ -11,7 +11,8 @@ import {
     LoginPage,
     ProfilePage,
     TweetPage,
-    ErrorPage
+    ErrorPage,
+    EditPage
 } from "./Pages";
 
 const router = createBrowserRouter(
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
                     <Route path="profile/:username" element={<ProfilePage />} />
                     <Route path="post/:tweetId" element={<TweetPage />} />
                     <Route path="/error" element = {<ErrorPage/>}/>
+                    <Route path='/edit-account-details' element={<EditPage/>}/>
                 </Route>
             </Route>
         </>

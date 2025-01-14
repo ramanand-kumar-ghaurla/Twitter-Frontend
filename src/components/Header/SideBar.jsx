@@ -15,7 +15,7 @@ function SideBar() {
 
   const loggedInUser = useSelector((state)=>state?.auth?.userData)
 
-console.log('looged in user',loggedInUser)
+console.log('looged in user in side bar',loggedInUser)
   const id= nanoid()
     const sideItems = [
         {
@@ -34,13 +34,13 @@ console.log('looged in user',loggedInUser)
         {
             name:'Profile',
             id:'profileBtn',
-            URL: `/profile/${loggedInUser?.user?.username}`,
+            URL: `/profile/${loggedInUser?.username}`,
             icon:<FaUser/>
         },
         {
-            name:'Post',
+            name:'Edit',
             id:'postBtn',
-            URL: '/post-tweet',
+            URL: '/edit-account-details',
             icon:<GoPlus/>
         }
     ]
@@ -58,7 +58,7 @@ console.log('looged in user',loggedInUser)
         ))} 
         <li key={id}>
           <NavLink to={'/home'} >
-          <Avtar fullName={loggedInUser?.user?.fullName} avtarURL={loggedInUser?.user?.avtar?.url}/>
+          <Avtar fullName={loggedInUser?.fullName} avtarURL={loggedInUser?.avtar?.url}/>
           </NavLink>
         </li>
        <li>

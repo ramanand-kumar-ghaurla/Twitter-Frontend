@@ -5,6 +5,7 @@ import RegistrationPage from "./RegistrationPage";
 import TweetPage from "./TweetPage";
 import PageLayout from "./PageLayout";
 import ErrorPage from "./ErrorPage";
+import EditPage from "./EditPage";
 
 export{
     HomePage,
@@ -13,5 +14,6 @@ export{
     RegistrationPage,
     TweetPage,
     PageLayout,
-    ErrorPage
+    ErrorPage,
+    EditPage
 }

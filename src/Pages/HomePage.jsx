@@ -39,7 +39,7 @@ if(tweets === null && tweets.isLoading ===false) return (
 
   return (
     <div className='p-10 mb-5 '>
-    <div>
+    <div >
       <TweetInput/>
     </div>
     <div>

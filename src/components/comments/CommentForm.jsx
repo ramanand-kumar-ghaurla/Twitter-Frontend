@@ -25,7 +25,7 @@ const CommentForm = forwardRef(({ initialModelId, initialModelType }, ref) => {
         setModelType(initialModelType); // Reset to "Tweet"
         setComment('')
       }
-    }, 0);
+    }, 500);
   };
 
   
@@ -51,7 +51,7 @@ const CommentForm = forwardRef(({ initialModelId, initialModelType }, ref) => {
   };
 
   return (
-    <div className="comment-form-fixed">
+    <div className="comment-form-fixed w-[80%] mx-auto">
       <form onSubmit={postComment}>
         <textarea
           ref={textareaRef}

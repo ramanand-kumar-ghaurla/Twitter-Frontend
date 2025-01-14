@@ -61,7 +61,7 @@ function ProfileTabBar() {
           />
           ))
         ) : (<h1>`{profileData.username} Don't Have Post Yet`</h1>)
-      ):( <h1 className='font-bold text-2xl text-center mt-[50%]' >No Posts Available</h1>)
+      ):( <h1 className='font-bold text-2xl text-center mt-[20%] ' >No Posts Available</h1>)
     }
 
     if (activeTab === 'Followers') {
@@ -78,7 +78,7 @@ function ProfileTabBar() {
           ) : null
         )
       ) : (
-        <h1 className='font-bold text-2xl text-center mt-[50%]'>User doesn't have any Followers</h1>
+        <h1 className='font-bold text-2xl text-center mt-[20%] '>User doesn't have any Followers</h1>
       );
     }
 
@@ -96,7 +96,7 @@ function ProfileTabBar() {
           ) : null
         )
       ) : (
-        <h1 className='font-bold text-2xl text-center mt-[50%]'>User doesn't have any Following Profiles</h1>
+        <h1 className='font-bold text-2xl text-center mt-[20%]'>User doesn't have any Following Profiles</h1>
       );
     }
 

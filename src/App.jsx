@@ -17,22 +17,12 @@ function App() {
   const dispatch = useDispatch()
 
   
-  const getAccessToken = async()=>{
-    const response = await api.post('/user/referesh-access-token',{})
-            .catch((error)=>{
-            console.log('error in refresh token',error)
-            dispatch(storeLogout())
-    })
+  
 
-    const user = response.data.data
-    console.log('user',user)
-    dispatch(login(user))
-  }
-
+  
  
 
  useEffect(()=>{
-    getAccessToken()
     dispatch(fetchulkProfile({pageNo:1}))
     dispatch(fetchTweet({pageNo :1}))
    

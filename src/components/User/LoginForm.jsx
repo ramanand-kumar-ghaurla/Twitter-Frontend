@@ -38,7 +38,7 @@ function LoginForm() {
             
             if (userData) {
                 dispatch(authLogin(userData));
-                console.log('auth slice called')
+                
                 reset(); // Reset form fields on success
                
             }
