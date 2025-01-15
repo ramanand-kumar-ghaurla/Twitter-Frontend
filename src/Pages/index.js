@@ -6,6 +6,8 @@ import TweetPage from "./TweetPage";
 import PageLayout from "./PageLayout";
 import ErrorPage from "./ErrorPage";
 import EditPage from "./EditPage";
+import ChangePasswordPage from "./ChangePasswordPage";
+import ChangeDtailsPage from "./ChangeDtailsPage";
 
 export{
     HomePage,
@@ -15,5 +17,7 @@ export{
     TweetPage,
     PageLayout,
     ErrorPage,
-    EditPage
+    EditPage,
+    ChangePasswordPage,
+    ChangeDtailsPage
 }

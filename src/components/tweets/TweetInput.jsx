@@ -66,7 +66,7 @@ function TweetInput() {
     return (
         <div className='flex gap-4 p-2 max-w-[85%] mb-2  border rounded-md h-1/4 border-gray-300 mx-auto '>
             <div>
-                <Avtar fullName={loggedInUser?.user?.fullName} avtarURL={loggedInUser?.user?.avtar?.url}/>
+                <Avtar fullName={loggedInUser?.fullName} avtarURL={loggedInUser?.avtar?.url}/>
             </div>
             <div className='w-[90%]'>
                 <form onSubmit={handleSubmit}>

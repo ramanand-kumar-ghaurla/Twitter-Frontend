@@ -12,7 +12,9 @@ import {
     ProfilePage,
     TweetPage,
     ErrorPage,
-    EditPage
+    EditPage,
+    ChangePasswordPage,
+    ChangeDtailsPage
 } from "./Pages";
 
 const router = createBrowserRouter(
@@ -27,8 +29,11 @@ const router = createBrowserRouter(
                     <Route path="home" element={<HomePage />} />
                     <Route path="profile/:username" element={<ProfilePage />} />
                     <Route path="post/:tweetId" element={<TweetPage />} />
-                    <Route path="/error" element = {<ErrorPage/>}/>
-                    <Route path='/edit-account-details' element={<EditPage/>}/>
+                    <Route path="error" element = {<ErrorPage/>}/>
+                    <Route path='edit-account-details' element={<EditPage/>}>
+                        <Route path="change-Pasword" element = {<ChangePasswordPage/>} />
+                        <Route path="change-user-details" element={ <ChangeDtailsPage/>} />
+                    </Route>
                 </Route>
             </Route>
         </>
