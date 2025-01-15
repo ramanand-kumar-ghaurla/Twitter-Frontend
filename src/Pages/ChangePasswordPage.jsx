@@ -25,8 +25,9 @@ function ChangePasswordPage() {
             clearErrors()
             const response = await api.post('/user/change-password', data)
             .catch((error)=>{
-                const serverError = error.response?.data?.message || error.message;
+                const serverError = error.response?.message || error.message;
                 setError(serverError);
+                console.log('error in changing password',error)
                 reset()
             })
 
@@ -46,7 +47,7 @@ function ChangePasswordPage() {
     <div className="max-w-md mx-auto p-4 mt-5 border rounded shadow">
     <h2 className="text-xl font-bold mb-4 text-center">Change Your Password</h2>
   
-
+    
         
     <form onSubmit={handleSubmit(changePassword)}>
 

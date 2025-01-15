@@ -14,7 +14,8 @@ import {
     ErrorPage,
     EditPage,
     ChangePasswordPage,
-    ChangeDtailsPage
+    ChangeDtailsPage,
+    ChangeAvtarPage
 } from "./Pages";
 
 const router = createBrowserRouter(
@@ -33,6 +34,7 @@ const router = createBrowserRouter(
                     <Route path='edit-account-details' element={<EditPage/>}>
                         <Route path="change-Pasword" element = {<ChangePasswordPage/>} />
                         <Route path="change-user-details" element={ <ChangeDtailsPage/>} />
+                        <Route path="change-profile-picture" element={<ChangeAvtarPage/>} />
                     </Route>
                 </Route>
             </Route>

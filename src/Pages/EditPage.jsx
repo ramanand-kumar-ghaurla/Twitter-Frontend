@@ -12,6 +12,10 @@ const navItems = [
   {
     name:'Change Your Details',
     URL:'change-user-details'
+  },
+  {
+    name:'Change Profile Picture',
+    URL:'change-profile-picture'
   }
 ]
   

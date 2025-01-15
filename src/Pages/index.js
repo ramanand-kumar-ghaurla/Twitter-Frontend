@@ -8,6 +8,7 @@ import ErrorPage from "./ErrorPage";
 import EditPage from "./EditPage";
 import ChangePasswordPage from "./ChangePasswordPage";
 import ChangeDtailsPage from "./ChangeDtailsPage";
+import ChangeAvtarPage from "./ChangeAvtarPage";
 
 export{
     HomePage,
@@ -19,5 +20,6 @@ export{
     ErrorPage,
     EditPage,
     ChangePasswordPage,
-    ChangeDtailsPage
+    ChangeDtailsPage,
+    ChangeAvtarPage
 }

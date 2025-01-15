@@ -39,6 +39,7 @@ function TweetInput() {
         formData.append('content', tweet);
         files.forEach(file => {
             formData.append('media', file);
+            console.log(files , 'tweet files')
         });
 
         try {
