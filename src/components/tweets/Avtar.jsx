@@ -15,6 +15,7 @@ function Avtar({
   return (
     <div className={` flex justify-center  items-center ${DivClass}`}>
       <Avatar
+      loading='lazy'
         src={ avtarURL === '' ? defaultUrl : avtarURL}
         withBorder={true}
         className={`p-0.5 ${className}`}

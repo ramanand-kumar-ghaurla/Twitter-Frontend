@@ -7,8 +7,7 @@ import { fetchulkProfile } from "../../Features/bulkProfile";
 function ProfileSideBar() {
   const dispatch = useDispatch();
   const profiles = useSelector((state) => state.bulkProfiles);
-  console.log('profiles',profiles)
-
+ 
   const isLoadMore = () => {
     if (profiles.hasMore) {
       dispatch(fetchulkProfile(profiles.pageNo + 1)); // Increment pageNo
@@ -48,7 +47,7 @@ function ProfileSideBar() {
       ))}
 
       <div className="mx-auto w-full pb-10">
-        {profiles.hasMore && (
+        { ( profiles.hasMore && profiles.profiles.length >=6)? (
           <Button
             children="See More"
             variant="filled"
@@ -58,7 +57,8 @@ function ProfileSideBar() {
             onClick={isLoadMore}
             disabled={profiles.isLoading}
           />
-        )}
+        ):null
+        }
       </div>
      </div>
     </>

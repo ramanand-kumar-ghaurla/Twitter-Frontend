@@ -15,7 +15,7 @@ function SideBar() {
 
   const loggedInUser = useSelector((state)=>state?.auth?.userData)
 
-console.log('looged in user in side bar',loggedInUser)
+
   const id= nanoid()
     const sideItems = [
         {
@@ -49,7 +49,7 @@ console.log('looged in user in side bar',loggedInUser)
       <div className=' flex flex-col justify-between gap-1 h-screen p-2'>
       <nav>
       <ul className='flex flex-col gap-y-10 items-center text-4xl p-6'> 
-      {sideItems.map((item) => ( <NavLink to={`${item.URL}`} className={({isActive})=> isActive ? 'text-black-500' : 'text-black'} >
+      {sideItems.map((item) => ( <NavLink to={`${item.URL}`} className={({isActive})=> isActive ? 'text-black-500' : 'text-black'} key={item.id} >
         <li  className={`relative group cursor-pointer duration-200 p-3 rounded-full mx-auto `} key={item.id} >
        {item.icon} <span className="absolute top-full  transform -translate-y-1/2 mt-2 -ml-1 bg-gray-500 text-white text-sm px-3 py-1 rounded-md opacity-0 group-hover:opacity-100">
         {item.name} </span> </li>

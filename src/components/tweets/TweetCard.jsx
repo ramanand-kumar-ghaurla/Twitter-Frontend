@@ -1,5 +1,5 @@
 import React,{useRef} from 'react'
-import { useSelector } from 'react-redux'
+
 import LikeBtn from './LikeBtn'
 import ViewBtn from './ViewBtn'
 import CommentBtn from '../comments/CommentBtn'
@@ -25,7 +25,7 @@ function TweetCard({
   return (
    <>
   
-<div className="bg-gray-50 dark:bg-black p-[0.5px] flex items-center justify-center  min-w-[80%]" >
+<div className="bg-gray-50 dark:bg-black p-[0.5px] flex items-center justify-center  min-w-[80%]"  >
   <div className="bg-white dark:bg-gray-800 border-gray-200 w-full dark:border-gray-800 p-4 rounded-xl border max-w-xl">
     <div className="flex justify-between">
       <div className="flex items-center" onClick={()=> fetchUserProfile(username)}>
@@ -45,7 +45,7 @@ function TweetCard({
         <div className='flex w-1/2'>
    {
     imageurl.map((url)=>(
-      <img className="mt-2 rounded-2xl border border-gray-100 dark:border-gray-700" src={url}/>
+      <img loading='lazy' className="mt-2 rounded-2xl border border-gray-100 dark:border-gray-700" src={url}/>
     ))
    }
     

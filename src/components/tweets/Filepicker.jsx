@@ -30,7 +30,7 @@ const FileInput = forwardRef((props, ref) => {
             fileInputRef.current.click();
         }
     }));
-    console.log('files in filepicker',files)
+   
 
     return (
         <div>

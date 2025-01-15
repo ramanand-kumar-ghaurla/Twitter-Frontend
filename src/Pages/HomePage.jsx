@@ -65,7 +65,7 @@ if(tweets === null && tweets.isLoading ===false) return (
 
     <div className='mx-auto w-full mt-10'>
     {
-      tweets.hasMore === true && ( <Button
+     ( tweets.hasMore === true && tweets.tweets.length >= 10) ? ( <Button
         children='See More'
         variant="filled" 
       color='blue'
@@ -74,7 +74,7 @@ if(tweets === null && tweets.isLoading ===false) return (
       className="rounded-full "
       onClick={isLoadMore}
       disabled={tweets.isLoading}
-      />)
+      />) : null
      }
     </div>
 

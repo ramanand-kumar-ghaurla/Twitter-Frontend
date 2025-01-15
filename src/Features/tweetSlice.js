@@ -11,8 +11,7 @@
         const tweets = response.data.tweets
         const dataBasePage = response?.data?.pageNo
         const hasMore  = response?.data?.hasMore
-        console.log('tweet response',response)
-        console.log('data', tweets)
+       
         return {tweets,pageNo:dataBasePage,hasMore}
     })
 

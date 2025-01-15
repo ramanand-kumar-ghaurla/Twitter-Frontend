@@ -9,6 +9,7 @@ import EditPage from "./EditPage";
 import ChangePasswordPage from "./ChangePasswordPage";
 import ChangeDtailsPage from "./ChangeDtailsPage";
 import ChangeAvtarPage from "./ChangeAvtarPage";
+import ChangeCoverPage from "./ChangeCoverPage";
 
 export{
     HomePage,
@@ -21,5 +22,6 @@ export{
     EditPage,
     ChangePasswordPage,
     ChangeDtailsPage,
-    ChangeAvtarPage
+    ChangeAvtarPage,
+    ChangeCoverPage
 }
