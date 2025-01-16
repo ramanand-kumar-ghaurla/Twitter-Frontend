@@ -27,7 +27,7 @@ useEffect(()=>{
   if(!profileData){
     navigate('/error')
   }
-  // console.log('profile in profile page',profileData)
+  //console.log('profile in profile page',profileData)
  
   // console.log('already follow',profileData?.followStatus)
  
@@ -46,7 +46,7 @@ useEffect(()=>{
       <div className='rounded-full border-[3px] border-black z-10 -top-20  h-36 w-36 absolute  left-4 cursor-pointer'>
        <Avtar  avtarURL={profileData?.avtar?.url} size='2xl' className='h-full w-full ' DivClass='h-full w-full' fullName={profileData?.fullName}/>
       </div>
-      <div className=' absolute  right-10 cursor-pointer z-10'> <FollowBtn username={profileData?.username} alreadyFollow={profileData?.followStatus}  ref={followRef} /></div>
+      <div className=' absolute  right-10 cursor-pointer z-10'> <FollowBtn username={profileData?.username} alreadyFollow={profileData?.followStatus}   ref={followRef} /></div>
       </div>
 
     <div className='mt-20 ml-5 cursor-text'>

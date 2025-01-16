@@ -29,7 +29,7 @@ function TweetCard({
   <div className="bg-white dark:bg-gray-800 border-gray-200 w-full dark:border-gray-800 p-4 rounded-xl border max-w-xl">
     <div className="flex justify-between">
       <div className="flex items-center" onClick={()=> fetchUserProfile(username)}>
-       <Avtar fullName={fullName} size='lg' avtarURL={avtarUrl}/>
+       <Avtar fullName={fullName} size='lg' avtarURL={avtarUrl} className='cursor-pointer'/>
         <div className="ml-1.5 text-sm leading-tight">
           <span className="text-black dark:text-white font-bold block cursor-pointer ">{fullName}</span>
           <span className="text-gray-500 dark:text-gray-400 font-normal cursor-pointer block"> {username} </span>

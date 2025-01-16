@@ -33,6 +33,7 @@ function LogoutBtn() {
       variant="filled" 
       color='blue'
       autoFocus={true}
+      size='sm'
       className="rounded-full font-bold "
       > Logout</Button>
       

@@ -36,7 +36,7 @@ const togglefollow =async()=>{
     <div>
       <Button variant="filled" 
       color='blue'
-      size={ 'lg'}
+      size={ 'base'}
     autoFocus={true}
       className="rounded-full "
       onClick={togglefollow}

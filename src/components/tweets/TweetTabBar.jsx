@@ -56,8 +56,8 @@ function TweetTabBar({
 
                     />
                 ))
-            ):( <h2> This Post does not any like Yet</h2>)
-        ) :(<h2> Error in getting Likes</h2>)
+            ):( <h2 className='font-bold text-2xl text-center mt-[20%] '> This Post does not any like Yet</h2>)
+        ) :(<h2 className='font-bold text-2xl text-center mt-[20%] '> Error in getting Likes</h2>)
     }
 
     // handle click event for comment form 
@@ -88,8 +88,8 @@ function TweetTabBar({
               onReply={()=>{ handleReply(comment._id,comment.commentedBy.username)}}
 
             />))
-          ) : (<h2> This post Dosn't have any Comment</h2>)
-        ) : (<h2>Error in Fetching Comments</h2>)
+          ) : (<h2 className='font-bold text-2xl text-center mt-[10%] '> This post Dosn't have any Comment</h2>)
+        ) : (<h2 className='font-bold text-2xl text-center mt-[10%] '>Error in Fetching Comments</h2>)
           }
 
         </div>

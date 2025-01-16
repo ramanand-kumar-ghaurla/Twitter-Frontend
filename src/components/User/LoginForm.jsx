@@ -34,8 +34,8 @@ function LoginForm() {
         try {
             const response = await api.post('/user/login', payload);
             console.log('response', response)
-            const userData = response.data.data.user;
-            
+            const userData = response?.data?.data;
+            console.log(userData,'userdata in login form')
             if (userData) {
                 dispatch(authLogin(userData));
                 

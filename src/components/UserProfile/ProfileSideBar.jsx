@@ -52,7 +52,7 @@ function ProfileSideBar() {
             children="See More"
             variant="filled"
             color="blue"
-            size="lg"
+            size="sm"
             className="rounded-full mx-auto "
             onClick={isLoadMore}
             disabled={profiles.isLoading}

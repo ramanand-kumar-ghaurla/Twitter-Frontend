@@ -69,7 +69,7 @@ if(tweets === null && tweets.isLoading ===false) return (
         children='See More'
         variant="filled" 
       color='blue'
-      size={ 'lg'}
+      size={ 'sm'}
     autoFocus={true}
       className="rounded-full "
       onClick={isLoadMore}

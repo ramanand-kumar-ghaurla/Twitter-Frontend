@@ -16,7 +16,7 @@ function FixedBar() {
           case '/post' : return 'Post';
           case '/profile/:username': return (
             <div className='pt-2 pb-2'>
-            <p className='font-bold text-lg cursor-pointer'>{`djfhfu${profileData.fullName}`}</p>
+            <p className='font-bold text-lg cursor-pointer'>{`${profileData.fullName}`}</p>
             <p className='text-sm opacity-60  '>  Posts</p>
           </div>
           )

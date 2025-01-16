@@ -65,11 +65,11 @@ function TweetInput() {
     };
 
     return (
-        <div className='flex gap-4 p-2 max-w-[85%] mb-2  border rounded-md h-1/4 border-gray-300 mx-auto '>
+        <div className='flex gap-4 p-2 max-w-[95%] mb-2  border rounded-md h-1/4 border-gray-300 mx-auto '>
             <div>
                 <Avtar fullName={loggedInUser?.fullName} avtarURL={loggedInUser?.avtar?.url}/>
             </div>
-            <div className='w-[90%]'>
+            <div className='w-[85%]'>
                 <form onSubmit={handleSubmit}>
                     <textarea
                         placeholder='What is happening?'
@@ -84,6 +84,7 @@ function TweetInput() {
                             variant="filled"
                             color='blue'
                             type='submit'
+                            size='base'
                             autoFocus={true}
                             className="rounded-full font-bold"
                             disabled={tweet.length > 250}

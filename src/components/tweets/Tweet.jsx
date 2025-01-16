@@ -9,7 +9,7 @@ import TweetTabBar from './TweetTabBar'
 
 function Tweet() {
     let {tweetId} = useParams()
-   
+   const [imageUrl,setImageUrl] = useState([])
 
     const fetchTweet = useFetchTweet()
     const navigate  = useNavigate()
@@ -22,6 +22,18 @@ function Tweet() {
     },[tweetId])
 
     const {tweet} = useSelector((state)=> state.tweet)
+    const tweetMedia = tweet?.media
+
+   
+
+    useEffect(()=>{
+      if( tweetMedia && tweetMedia.length >0){
+        const mediaUrl= tweetMedia.map((media)=>media.mediaUrl )
+        console.log('media url',mediaUrl)
+        setImageUrl(mediaUrl)
+       }
+      
+    },[tweetMedia])
     
   return (
     <>
@@ -37,6 +49,7 @@ function Tweet() {
             tweetId={tweet._id}
             key={tweet._id}
             avtarUrl={tweet.postedBy?.avtar?.url}
+            imageurl={imageUrl}
           />
     }
 
