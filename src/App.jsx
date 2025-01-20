@@ -40,7 +40,7 @@ function App() {
   
 
  useEffect(()=>{
-    currentUser()
+   currentUser()
     dispatch(fetchulkProfile({pageNo:1}))
     dispatch(fetchTweet({pageNo :1}))
    
