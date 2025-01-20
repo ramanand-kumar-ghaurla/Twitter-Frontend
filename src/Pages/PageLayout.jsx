@@ -26,7 +26,7 @@ function PageLayout() {
         </div>
        
         </div>
-        <div className='col-span-4 hidden lg:block p-2'>
+        <div className='col-span-4 hidden h-screen overflow-hidden lg:block p-2'>
         <h1 className='font-bold text-2xl text-center pt-4'>You might like</h1>
        
         <ProfileSideBar/>

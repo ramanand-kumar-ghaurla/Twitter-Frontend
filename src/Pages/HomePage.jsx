@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import {TweetCard,TweetInput , Loader} from '../components/index'
-import { logout as storeLogout ,login} from '../Features/authSclice'
+
 import { fetchTweet } from '../Features/tweetSlice'
 import { Button } from '@material-tailwind/react'
 

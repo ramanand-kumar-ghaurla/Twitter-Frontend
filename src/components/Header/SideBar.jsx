@@ -58,7 +58,7 @@ function SideBar() {
         ))} 
         <li key={id}>
           <NavLink to={'/home'} >
-          <Avtar size='base' fullName={loggedInUser?.fullName} avtarURL={loggedInUser?.avtar?.url}/>
+          <Avtar size='md' fullName={loggedInUser?.fullName} avtarURL={loggedInUser?.avtar?.url}/>
           </NavLink>
         </li>
        <li>

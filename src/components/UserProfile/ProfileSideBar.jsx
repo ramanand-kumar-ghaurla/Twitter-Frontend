@@ -46,7 +46,7 @@ function ProfileSideBar() {
         />
       ))}
 
-      <div className="mx-auto w-full pb-10">
+      <div className="mx-auto w-full ">
         { ( profiles.hasMore && profiles.profiles.length >=6)? (
           <Button
             children="See More"

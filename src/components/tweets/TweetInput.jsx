@@ -1,6 +1,6 @@
 import React, { useState, useRef ,forwardRef} from 'react';
 import Avtar from './Avtar';
-import FileInput from './filePicker';
+import FileInput from './FileInput'
 import { Button } from '@material-tailwind/react';
 import api from '../../helperFunction/axios';
 import { useSelector } from 'react-redux';
@@ -84,7 +84,7 @@ function TweetInput() {
                             variant="filled"
                             color='blue'
                             type='submit'
-                            size='base'
+                            size='md'
                             autoFocus={true}
                             className="rounded-full font-bold"
                             disabled={tweet.length > 250}
