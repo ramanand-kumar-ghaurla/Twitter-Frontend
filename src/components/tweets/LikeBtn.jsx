@@ -48,6 +48,7 @@ function LikeBtn({
     const fetchLikeStatus = async () => {
        const status = await getlikeStatus(modelId,modelType);
 
+       console.log('like response',status)
         
        if(status){
         setLikeStatus(status)
