@@ -47,8 +47,11 @@ function LikeBtn({
       useEffect(()=>{
     const fetchLikeStatus = async () => {
        const status = await getlikeStatus(modelId,modelType);
+
         
-       setLikeStatus(status); }; 
+       if(status){
+        setLikeStatus(status)
+       }; }; 
         
         fetchLikeStatus();
         
