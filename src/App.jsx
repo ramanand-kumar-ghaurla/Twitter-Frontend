@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import {  useDispatch } from 'react-redux'
 import { logout as storeLogout ,login, logout} from './Features/authSclice'
 
 import PageLayout from './Pages/PageLayout'
