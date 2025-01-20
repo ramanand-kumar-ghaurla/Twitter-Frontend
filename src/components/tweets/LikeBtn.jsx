@@ -14,7 +14,7 @@ function LikeBtn({
   className='',
   ...props
 },ref) {
-   const [likeStatus, setLikeStatus] = useState()
+   const [likeStatus, setLikeStatus] = useState(false)
    
 
    const toggleLike =  async()=>{
@@ -34,7 +34,7 @@ function LikeBtn({
      })
  
      
-     const {isLiked} = response.data.data
+     const {isLiked} = response?.data?.data
      
      setLikeStatus(isLiked)
      
