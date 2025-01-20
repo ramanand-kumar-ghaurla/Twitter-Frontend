@@ -50,9 +50,9 @@ function LikeBtn({
 
        console.log('like response',status)
         
-       if(status){
+      
         setLikeStatus(status)
-       }; }; 
+        }; 
         
         fetchLikeStatus();
         
