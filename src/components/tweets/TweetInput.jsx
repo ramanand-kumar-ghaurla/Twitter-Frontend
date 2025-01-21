@@ -46,21 +46,21 @@ function TweetInput() {
             const response = await api.post('/tweets/create-tweet', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                    Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmI3NTk2NjRmZjM0MDk3ZjUyNzY3ZTIiLCJlbWFpbCI6InNvbmlhOTUwMDVAZ21haWwuY29tIiwidXNlcm5hbWUiOiJzb25pYV9yYW5pIiwiZnVsbE5hbWUiOiJTb25pYSBSYW5pIiwiaWF0IjoxNzMzNDcyNTcyLCJleHAiOjE3MzM1NTg5NzJ9.2u6t-cKTyMR6MNELbrQlgwZr3Kq-0SbszeWL_ERer9c'
+                   
                 }
             });
             console.log('res', response);
 
-            if (response.statusText === 'OK') {
-                console.log('Tweet submitted successfully');
-                setTweet('');
-                setError('');
-                fileInputRef.current.clearFiles();
-            } else {
-                console.error('Failed to submit tweet');
-            }
+           if(response?.data?.statusCode === 200){
+            setTweet('')
+            setError('')
+           }else{
+            setError('error in submit tweet')
+            setTweet('')
+           }
         } catch (err) {
             console.error('Error submitting tweet', err);
+            setTweet('')
         }
     };
 

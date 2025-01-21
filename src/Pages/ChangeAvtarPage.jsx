@@ -24,6 +24,8 @@ function ChangeAvtarPage() {
 
             const formData = new FormData()
             formData.append('avtar',data?.avtar[0])
+
+            
            
 
             clearErrors()

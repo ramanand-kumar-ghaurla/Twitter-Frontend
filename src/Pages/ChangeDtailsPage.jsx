@@ -3,10 +3,11 @@ import { useForm } from "react-hook-form";
 import api from "../helperFunction/axios";
 import { useDispatch } from "react-redux";
 import { login } from "../Features/authSclice";
+import { useNavigate } from 'react-router-dom';
 
 function ChangeDtailsPage() {
     const dispatch = useDispatch()
-
+    const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -56,6 +57,7 @@ function ChangeDtailsPage() {
       if(user){
         dispatch(login(user))
         reset()
+        navigate('/home')
       }
      
     
