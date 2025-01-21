@@ -42,7 +42,7 @@ const togglefollow =async()=>{
       onClick={togglefollow}
       ref={ref}
       {...props}>
-        {isFollowed ? (isFollowed ? `Following` :`Follow`): (alreadyFollow ===true ? `following` :`follow`)}
+        {isFollowed ? (isFollowed === true ? `Following` :`Follow`): (alreadyFollow ===true ? `following` :`follow`)}
       </Button>
     </div>
   )

@@ -16,7 +16,7 @@ function PageLayout() {
         <div className='lg:col-span-2 md:col-span-3 col-span-4 h-full overflow-hidden '>  
         <SideBar/>
         </div>
-        <div className='lg:col-span-6 col-span-9 md:col-span-8 border-l-2 border-gray-300  border-r-2'>
+        <div className='lg:col-span-6 col-span-9  md:col-span-8 border-l-2 border-gray-300  border-r-2'>
 
         <FixedBar/>
         <div className='overflow-scroll w-full h-screen '>
