@@ -35,7 +35,7 @@ function LoginForm() {
             const response = await api.post('/user/login', payload);
             console.log('response', response)
             const userData = response?.data?.data;
-            console.log(userData,'userdata in login form')
+           
             if (userData) {
                 dispatch(authLogin(userData));
                 
@@ -46,7 +46,8 @@ function LoginForm() {
             
 
         } catch (error) {
-            setError(error.message);
+            console.log('error in logging user',error)
+            setError(error?.response?.data?.message);
         }
     };
 
