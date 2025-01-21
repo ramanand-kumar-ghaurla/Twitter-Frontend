@@ -1,6 +1,6 @@
-import React,{useEffect, useRef} from 'react'
+import React,{useEffect, useRef,useState} from 'react'
 
-import { Avtar, FollowBtn,ProfileTabBar } from '../index'
+import { Avtar, FollowBtn,ProfileTabBar ,Loader} from '../index'
 import { useSelector } from 'react-redux'
 import useFetchUserProfile from '../../hooks/useFetchProfile'
 import { useParams } from 'react-router-dom'
@@ -13,10 +13,14 @@ function Profile() {
   console.log('param username', username)
 const fetchUserProfile = useFetchUserProfile()
 const navigate = useNavigate()
+const [loading, setLoading] = useState(false)
 
 
 useEffect(()=>{
-  fetchUserProfile(username,false).catch((error)=>{
+  setLoading(true)
+  fetchUserProfile(username,false)
+  .then(()=> setLoading(false))
+  .catch((error)=>{
     console.log('error in fetching profile',error)
     navigate('/error')
   })
@@ -24,7 +28,7 @@ useEffect(()=>{
   const followRef = useRef()
   
   const {profileData} = useSelector((state)=> state.profile)
-  if(!profileData){
+  if(!profileData && !loading){
     navigate('/error')
   }
   //console.log('profile in profile page',profileData)
@@ -32,7 +36,11 @@ useEffect(()=>{
   // console.log('already follow',profileData?.followStatus)
  
   return (
-    <div>
+  <>
+    {
+      loading === true ? (<Loader />) : (
+        profileData ? (
+          <div>
      {/* upper div */}
      <div>
      {/* cover,avtar,follow  div */}
@@ -73,6 +81,10 @@ useEffect(()=>{
 
      </div>
     </div>
+        )  : ( <h2> Profile Doesn't Exists</h2>)
+      )
+    }
+  </>
   )
 }
 

@@ -11,6 +11,7 @@ function FollowBtn({
 
 const [isFollowed, setisFollowed] = useState(alreadyFollow)
 
+console.log(`already folow,${alreadyFollow} from ${ref}` )
 
 
 const togglefollow =async()=>{
