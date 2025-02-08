@@ -15,6 +15,7 @@ function LikeBtn({
   ...props
 },ref) {
    const [likeStatus, setLikeStatus] = useState(false)
+   const [resLikeCount,setResLikeCount] = useState(likeCount)
    
 
    const toggleLike =  async()=>{
@@ -34,10 +35,11 @@ function LikeBtn({
      })
  
      
-     const {isLiked} = response?.data?.data
+     
+     const {isLiked,likeCount} = response?.data?.data
      
      setLikeStatus(isLiked)
-     
+     setResLikeCount(likeCount)
    
      
    }
@@ -72,7 +74,7 @@ function LikeBtn({
                 </path>
             </svg>
             </button>
-      <span ref={ref}>{likeCount}</span></div>
+      <span ref={ref}>{resLikeCount}</span></div>
     </div>
   )
 }

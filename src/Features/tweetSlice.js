@@ -26,6 +26,13 @@
     const tweetSlice = createSlice({
         name:'tweetBulk',
         initialState:initialState,
+        reducers:{
+            addTweet:(state,action)=>{
+                state.isError = false,
+                state.isLoading = false
+                state.tweets = [action.payload, ...state?.tweets]
+            }
+        },
         extraReducers: (builder)=>{
             builder.addCase(fetchTweet.pending,(state,action)=>{
                 state.isLoading=true,
@@ -54,4 +61,5 @@
     
     })
 
+    export const { addTweet}=tweetSlice.actions
     export default tweetSlice.reducer

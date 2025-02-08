@@ -3,10 +3,11 @@ import Avtar from './Avtar';
 import FileInput from './FileInput'
 import { Button } from '@material-tailwind/react';
 import api from '../../helperFunction/axios';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
+import { addTweet } from '../../Features/tweetSlice';
 function TweetInput() {
     const loggedInUser = useSelector((state)=>state?.auth?.userData)
-
+    const dispatch = useDispatch()
     const [tweet, setTweet] = useState('');
     const [error, setError] = useState('');
     const fileInputRef = useRef(null);
@@ -49,11 +50,12 @@ function TweetInput() {
                    
                 }
             });
-            console.log('res', response);
-
+            console.log(' tweet res', response?.data?.data);
+            const tweet = response?.data?.data?.resTweet[0]
            if(response?.data?.statusCode === 200){
             setTweet('')
             setError('')
+            dispatch(addTweet(tweet))
            }else{
             setError('error in submit tweet')
             setTweet('')

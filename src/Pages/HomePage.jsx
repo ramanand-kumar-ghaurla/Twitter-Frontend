@@ -11,6 +11,7 @@ function HomePage() {
   
 
 const tweets = useSelector((state)=> state.tweetBulk)
+console.log('tweets', tweets)
 
 
 const isLoadMore = () => {
@@ -44,18 +45,18 @@ if(tweets === null && tweets.isLoading ===false) return (
     </div>
     <div>
     {
-       tweets.tweets && tweets.tweets.length > 0 ? (
-        ( tweets.tweets.map((tweet)=>{
+       tweets?.tweets && tweets?.tweets?.length > 0 ? (
+        ( tweets?.tweets.map((tweet)=>{
             return (
-                <TweetCard likeCount={tweet.likeCount}
-                commentCount={tweet.commentCount}
-                viewCount={tweet.commentCount}
-                content={tweet.content}
-                tweetId = {tweet._id}
-                username={tweet.postedBy[0].username}
-                fullName={tweet.postedBy[0].fullName}
-                avtarUrl={tweet.postedBy[0]?.avtar?.url}
-                        key={tweet._id}
+                <TweetCard likeCount={tweet?.likeCount}
+                commentCount={tweet?.commentCount}
+                viewCount={tweet?.commentCount}
+                content={tweet?.content}
+                tweetId = {tweet?._id}
+                username={tweet?.postedBy[0]?.username}
+                fullName={tweet.postedBy[0]?.fullName}
+                avtarUrl={tweet?.postedBy[0]?.avtar?.url}
+                        key={tweet?._id}
                      />
             )
         })) 
@@ -65,7 +66,7 @@ if(tweets === null && tweets.isLoading ===false) return (
 
     <div className='mx-auto w-full mt-10'>
     {
-     ( tweets.hasMore === true && tweets.tweets.length >= 10) ? ( <Button
+     ( tweets?.hasMore === true && tweets?.tweets?.length >= 10) ? ( <Button
         children='See More'
         variant="filled" 
       color='blue'
@@ -73,7 +74,7 @@ if(tweets === null && tweets.isLoading ===false) return (
     autoFocus={true}
       className="rounded-full "
       onClick={isLoadMore}
-      disabled={tweets.isLoading}
+      disabled={tweets?.isLoading}
       />) : null
      }
     </div>
