@@ -50,7 +50,7 @@ if(tweets === null && tweets.isLoading ===false) return (
             return (
                 <TweetCard likeCount={tweet?.likeCount}
                 commentCount={tweet?.commentCount}
-                viewCount={tweet?.commentCount}
+                viewCount={tweet?.viewCount}
                 content={tweet?.content}
                 tweetId = {tweet?._id}
                 username={tweet?.postedBy[0]?.username}
